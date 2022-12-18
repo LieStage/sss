@@ -3,19 +3,19 @@ import os
 
 class Config:
 
-    API_ID = int(os.environ.get("API_ID"))
-    API_HASH = os.environ.get("API_HASH")
+    API_ID = int(os.environ.get("API_ID","4682685"))
+    API_HASH = os.environ.get("API_HASH","3eba5d471162181b8a3f7f5c0a23c307")
     PORT = os.environ.get("PORT","8080")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN","5484278199:AAF9jJuLtDkx1M4QsPJim9KPwaoWCBltO3A")
     SESSION_NAME = os.environ.get("SESSION_NAME", "ssbots")
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL"))
-    DATABASE_URL = os.environ.get("DATABASE_URL")
-    AUTH_USERS = [int(i) for i in os.environ.get("AUTH_USERS", "").split(" ")]
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL","-1001539366814"))
+    DATABASE_URL = os.environ.get("DATABASE_URL","mongodb+srv://video:merge@cluster0.km7eaiw.mongodb.net/?retryWrites=true&w=majority")
+    AUTH_USERS = [int(i) for i in os.environ.get("AUTH_USERS", "0").split(" ")]
     MAX_PROCESSES_PER_USER = int(os.environ.get("MAX_PROCESSES_PER_USER", 2))
     MAX_TRIM_DURATION = int(os.environ.get("MAX_TRIM_DURATION", 600))
     TRACK_CHANNEL = int(os.environ.get("TRACK_CHANNEL", False))
     SLOW_SPEED_DELAY = int(os.environ.get("SLOW_SPEED_DELAY", 5))
-    HOST = os.environ.get("HOST", "")
+    HOST = os.environ.get("HOST", "0")
     TIMEOUT = int(os.environ.get("TIMEOUT", 60 * 30))
     DEBUG = bool(os.environ.get("DEBUG"))
     WORKER_COUNT = int(os.environ.get("WORKER_COUNT", 20))
