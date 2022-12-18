@@ -12,7 +12,8 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from bot.config import Config
 from bot.workers import Worker
 from bot.utils.broadcast import Broadcast
-
+from aiohttp import web
+from plugins import web_server
 
 log = logging.getLogger(__name__)
 
@@ -37,6 +38,14 @@ class ScreenShotBot(Client):
         await self.process_pool.start()
         me = await self.get_me()
         print(f"New session started for {me.first_name}({me.username})")
+        app = web.AppRunner(await web_server())
+
+        await app.setup()
+
+        bind_address = "0.0.0.0"
+
+        await web.TCPSite(app, bind_address, PORT).start()
+        
 
     async def stop(self):
         await self.process_pool.stop()
