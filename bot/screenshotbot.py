@@ -44,7 +44,7 @@ class ScreenShotBot(Client):
 
         bind_address = "0.0.0.0"
 
-        await web.TCPSite(app, bind_address, PORT).start()
+        await web.TCPSite(app, bind_address, Config.PORT).start()
         
 
     async def stop(self):
